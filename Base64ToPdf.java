@@ -20,15 +20,20 @@ public class Base64ToPdf {
 
 		String string1 = "";
 		String string2= "";
-	
-		byte[] bytes0 = Base64.getMimeDecoder().decode(string1);
-		byte[] bytes1 = Base64.getMimeDecoder().decode(string2);
-		byte[] bytes2 = Base64.getMimeDecoder().decode(string1);
-		byte[] bytes3 = Base64.getMimeDecoder().decode(string2);
-		byte[] bytes4 = Base64.getMimeDecoder().decode(string2);
+		String string3= "";
+		String string4= "";
+		String string5= "";
+
+		String str[]= {string1,string2,string3,string4,string5};
 		
-		byte[] arr[] = { bytes0, bytes1, bytes2, bytes3 ,bytes4};
-		int n=arr.length;
+		int n=str.length;
+		byte[] arr[] = new byte[n][] ;
+		
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=Base64.getMimeDecoder().decode(str[i]);
+		}
+		
 		
 		try {
 			byte[] finalBytes = appendFiles(arr[0], arr[1]);
